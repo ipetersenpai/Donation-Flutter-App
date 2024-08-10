@@ -4,11 +4,13 @@ import '../widgets/drawer_widget.dart'; // Import the drawer widget
 import '../widgets/bottom_navigation_bar_widget.dart'; // Import the BottomNavigationBar widget
 import '../pages/profile_page.dart'; // Import the ProfilePage
 import '../pages/history_page.dart'; // Import the HistoryPage
+import '../pages/donate_page.dart'; // Import the DonatePage
 
 class DashboardPage extends StatefulWidget {
   const DashboardPage({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _DashboardPageState createState() => _DashboardPageState();
 }
 
@@ -16,6 +18,19 @@ class _DashboardPageState extends State<DashboardPage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   int _currentIndex = 0;
   final PageController _pageController = PageController();
+
+  final List<Map<String, String>> donationCategories = [
+    {"title": "WISDOM", "subtitle": "Alay Kapwa para sa Karunungan"},
+    {"title": "HEALTH", "subtitle": "Alay Kapwa para sa Kalusugan"},
+    {"title": "CALAMITY", "subtitle": "Alay Kapwa para sa Kalamidad"},
+    {"title": "SKILLS", "subtitle": "Alay Kapwa para sa Kasanayan"},
+    {"title": "ENVIRONMENT", "subtitle": "Alay Kapwa para sa Kalikasan"},
+    {"title": "EDUCATION", "subtitle": "Alay Kapwa para sa Edukasyon"},
+    {"title": "HUNGER", "subtitle": "Alay Kapwa para sa Gutom"},
+    {"title": "COMMUNITY", "subtitle": "Alay Kapwa para sa Komunidad"},
+    {"title": "LIVELIHOOD", "subtitle": "Alay Kapwa para sa Kabuhayan"},
+    {"title": "TECHNOLOGY", "subtitle": "Alay Kapwa para sa Teknolohiya"},
+  ];
 
   void _onPageChanged(int index) {
     setState(() {
@@ -28,6 +43,15 @@ class _DashboardPageState extends State<DashboardPage> {
       _currentIndex = index;
     });
     _pageController.jumpToPage(index);
+  }
+
+  void _navigateToDonatePage(BuildContext context, String title) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => DonatePage(donationCategory: title),
+      ),
+    );
   }
 
   @override
@@ -88,10 +112,68 @@ class _DashboardPageState extends State<DashboardPage> {
       body: PageView(
         controller: _pageController,
         onPageChanged: _onPageChanged,
-        children: const [
-          Center(child: Text('Dashboard Page')), // Home content
-          HistoryPage(), // History content
-          ProfilePage(), // Profile content
+        children: [
+          ListView.builder(
+            itemCount: donationCategories.length,
+            itemBuilder: (context, index) {
+              final category = donationCategories[index];
+              return GestureDetector(
+                onTap: () => _navigateToDonatePage(context, category["title"]!),
+                child: Card(
+                  color: const Color(0xFF9D0606),
+                  margin:
+                      const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          category["title"]!,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          category["subtitle"]!,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                        Align(
+                          alignment: Alignment.bottomRight,
+                          child: ElevatedButton(
+                            onPressed: () => _navigateToDonatePage(
+                                context, category["title"]!),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors
+                                  .white, // Correct property for background color
+                              foregroundColor: const Color(
+                                  0xFF9D0606), // Correct property for text/icon color
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                            ),
+                            child: const Text("DONATE NOW"),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              );
+            },
+          ),
+          const HistoryPage(), // History content
+          const ProfilePage(), // Profile content
         ],
       ),
       bottomNavigationBar: BottomNavigationBarWidget(
