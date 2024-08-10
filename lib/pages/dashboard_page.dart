@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../widgets/drawer_widget.dart'; // Import the drawer widget
 import '../widgets/bottom_navigation_bar_widget.dart'; // Import the BottomNavigationBar widget
+import '../pages/profile_page.dart'; // Import the ProfilePage
+import '../pages/history_page.dart'; // Import the HistoryPage
 
 class DashboardPage extends StatefulWidget {
   const DashboardPage({super.key});
@@ -33,11 +35,17 @@ class _DashboardPageState extends State<DashboardPage> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        title: Text(_currentIndex == 0
-            ? 'Dashboard'
-            : _currentIndex == 1
-                ? 'History'
-                : 'Profile'),
+        title: Text(
+          _currentIndex == 0
+              ? 'DONATION CATEGORY'
+              : _currentIndex == 1
+                  ? 'History'
+                  : 'Profile',
+          style: const TextStyle(
+            fontSize:
+                16.0, // Adjust this value to make the text smaller or larger
+          ),
+        ),
         centerTitle: true,
         leading: _currentIndex == 0
             ? IconButton(
@@ -82,8 +90,8 @@ class _DashboardPageState extends State<DashboardPage> {
         onPageChanged: _onPageChanged,
         children: const [
           Center(child: Text('Dashboard Page')), // Home content
-          Center(child: Text('History Page')), // History content
-          Center(child: Text('Profile Page')), // Profile content
+          HistoryPage(), // History content
+          ProfilePage(), // Profile content
         ],
       ),
       bottomNavigationBar: BottomNavigationBarWidget(
