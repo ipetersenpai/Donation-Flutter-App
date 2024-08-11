@@ -34,9 +34,9 @@ class AppDrawer extends StatelessWidget {
                 height: 24,
                 color: Colors.black,
               ),
-              title: const Text('Donation History'),
+              title: const Text('About'),
               onTap: () {
-                // Handle Donation History tap
+                Navigator.pushNamed(context, '/about');
               },
             ),
             ListTile(
@@ -48,7 +48,7 @@ class AppDrawer extends StatelessWidget {
               ),
               title: const Text('Update Password'),
               onTap: () {
-                // Handle Update Password tap
+                Navigator.pushNamed(context, '/profile');
               },
             ),
             const Spacer(),

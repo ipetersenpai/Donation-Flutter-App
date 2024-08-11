@@ -96,6 +96,8 @@ class ProfilePage extends StatelessWidget {
   }
 
   Widget _buildDateInputField(BuildContext context, String label) {
+    final TextEditingController dateController = TextEditingController();
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -111,6 +113,7 @@ class ProfilePage extends StatelessWidget {
         SizedBox(
           height: 50.0, // Height for the TextField
           child: TextField(
+            controller: dateController,
             readOnly: true,
             decoration: const InputDecoration(
               border: OutlineInputBorder(),
@@ -128,11 +131,9 @@ class ProfilePage extends StatelessWidget {
                 lastDate: DateTime(2100),
               );
               if (pickedDate != null) {
-                // Format and set the selected date in the TextField
                 String formattedDate =
                     "${pickedDate.day}-${pickedDate.month}-${pickedDate.year}";
-                // Use a TextEditingController to set the value
-                TextEditingController().text = formattedDate;
+                dateController.text = formattedDate;
               }
             },
           ),

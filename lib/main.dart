@@ -5,6 +5,7 @@ import 'pages/register_page.dart';
 import 'pages/dashboard_page.dart';
 import 'pages/history_page.dart'; // Import the HistoryPage
 import 'pages/profile_page.dart'; // Import the ProfilePage
+import 'pages/about_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,13 +24,13 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
-        // '/': (context) => const LoginPage(),
-        '/': (context) => const DashboardPage(),
+        '/': (context) => const LoginPage(),
         '/forgot_password': (context) => ForgotPasswordPage(),
         '/register': (context) => RegisterPage(),
         '/history': (context) => const HistoryPage(),
         '/profile': (context) => const ProfilePage(),
         '/dashboard': (context) => const DashboardPage(),
+        '/about': (context) => AboutPage(),
       },
     );
   }
