@@ -61,6 +61,10 @@ flutter:
     - assets/lock.svg
     - assets/logout.svg
     - assets/logo.svg
+    - assets/maya.svg
+    - assets/gcash.svg
+    - assets/bpi.svg
+    - assets/qrph.svg
 
 
 

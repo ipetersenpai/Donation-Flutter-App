@@ -24,12 +24,6 @@ class _DashboardPageState extends State<DashboardPage> {
     {"title": "HEALTH", "subtitle": "Alay Kapwa para sa Kalusugan"},
     {"title": "CALAMITY", "subtitle": "Alay Kapwa para sa Kalamidad"},
     {"title": "SKILLS", "subtitle": "Alay Kapwa para sa Kasanayan"},
-    {"title": "ENVIRONMENT", "subtitle": "Alay Kapwa para sa Kalikasan"},
-    {"title": "EDUCATION", "subtitle": "Alay Kapwa para sa Edukasyon"},
-    {"title": "HUNGER", "subtitle": "Alay Kapwa para sa Gutom"},
-    {"title": "COMMUNITY", "subtitle": "Alay Kapwa para sa Komunidad"},
-    {"title": "LIVELIHOOD", "subtitle": "Alay Kapwa para sa Kabuhayan"},
-    {"title": "TECHNOLOGY", "subtitle": "Alay Kapwa para sa Teknolohiya"},
   ];
 
   void _onPageChanged(int index) {
@@ -45,11 +39,15 @@ class _DashboardPageState extends State<DashboardPage> {
     _pageController.jumpToPage(index);
   }
 
-  void _navigateToDonatePage(BuildContext context, String title) {
+  void _navigateToDonatePage(
+      BuildContext context, String title, String subtitle) {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => DonatePage(donationCategory: title),
+        builder: (context) => DonatePage(
+          donationCategory: title,
+          donationDescription: subtitle,
+        ),
       ),
     );
   }
@@ -63,8 +61,8 @@ class _DashboardPageState extends State<DashboardPage> {
           _currentIndex == 0
               ? 'DONATION CATEGORY'
               : _currentIndex == 1
-                  ? 'History'
-                  : 'Profile',
+                  ? 'HISTORY'
+                  : 'PROFILE',
           style: const TextStyle(
             fontSize:
                 16.0, // Adjust this value to make the text smaller or larger
@@ -118,7 +116,11 @@ class _DashboardPageState extends State<DashboardPage> {
             itemBuilder: (context, index) {
               final category = donationCategories[index];
               return GestureDetector(
-                onTap: () => _navigateToDonatePage(context, category["title"]!),
+                onTap: () => _navigateToDonatePage(
+                  context,
+                  category["title"]!,
+                  category["subtitle"]!,
+                ),
                 child: Card(
                   color: const Color(0xFF9D0606),
                   margin:
@@ -152,7 +154,10 @@ class _DashboardPageState extends State<DashboardPage> {
                           alignment: Alignment.bottomRight,
                           child: ElevatedButton(
                             onPressed: () => _navigateToDonatePage(
-                                context, category["title"]!),
+                              context,
+                              category["title"]!,
+                              category["subtitle"]!,
+                            ),
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors
                                   .white, // Correct property for background color
