@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart'; // Make sure this import is included
-import 'package:flutter_svg/flutter_svg.dart'; // Import this for SVG images
+import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class DonatePage extends StatefulWidget {
   final String donationCategory;
@@ -26,8 +26,7 @@ class _DonatePageState extends State<DonatePage> {
         title: const Text(
           'DONATE',
           style: TextStyle(
-            fontSize:
-                16.0, // Adjust this value to make the text smaller or larger
+            fontSize: 16.0,
           ),
         ),
         centerTitle: true,
@@ -43,7 +42,7 @@ class _DonatePageState extends State<DonatePage> {
                 borderRadius: BorderRadius.circular(10.0),
               ),
               child: SizedBox(
-                height: 150, // Adjust this value as needed
+                height: 150,
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Column(
