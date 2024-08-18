@@ -24,7 +24,7 @@ class AppDrawer extends StatelessWidget {
               ),
               decoration: const BoxDecoration(
                 color: Color(0xFF9D0606),
-                borderRadius: BorderRadius.zero, // Remove the border radius
+                borderRadius: BorderRadius.zero,
               ),
             ),
             ListTile(
@@ -48,7 +48,7 @@ class AppDrawer extends StatelessWidget {
               ),
               title: const Text('Update Password'),
               onTap: () {
-                Navigator.pushNamed(context, '/profile');
+                Navigator.pushNamed(context, '/update-password');
               },
             ),
             const Spacer(),

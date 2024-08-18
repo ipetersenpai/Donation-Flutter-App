@@ -280,7 +280,7 @@ class _GcashInformationPageState extends State<GcashInformationPage> {
             const SizedBox(height: 8.0),
             const SizedBox(height: 16.0),
             const Text(
-              'Reference Number',
+              'Reference Number (Optional)',
               style: TextStyle(fontSize: 18, color: Colors.black),
             ),
             const SizedBox(height: 8.0),

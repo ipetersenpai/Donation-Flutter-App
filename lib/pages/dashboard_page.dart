@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import '../widgets/drawer_widget.dart'; // Import the drawer widget
-import '../widgets/bottom_navigation_bar_widget.dart'; // Import the BottomNavigationBar widget
-import '../pages/profile_page.dart'; // Import the ProfilePage
-import '../pages/history_page.dart'; // Import the HistoryPage
-import '../pages/donate_page.dart'; // Import the DonatePage
+import '../widgets/drawer_widget.dart';
+import '../widgets/bottom_navigation_bar_widget.dart';
+import '../pages/profile_page.dart';
+import '../pages/history_page.dart';
+import '../pages/donate_page.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 

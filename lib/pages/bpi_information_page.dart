@@ -245,7 +245,7 @@ class _BPIInformationPageState extends State<BPIInformationPage> {
               children: [
                 const Expanded(
                   child: Text(
-                    'Account No: 0917 123 4567',
+                    'Account Name: Juan Dela Cruz Jr',
                     style: TextStyle(
                         fontSize: 16.0,
                         color: Colors.black,
@@ -254,7 +254,24 @@ class _BPIInformationPageState extends State<BPIInformationPage> {
                 ),
                 IconButton(
                   icon: const Icon(Icons.copy, color: Colors.blue),
-                  onPressed: () => _copyToClipboard('0917 123 4567'),
+                  onPressed: () => _copyToClipboard('Juan Dela Cruz Jr'),
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                const Expanded(
+                  child: Text(
+                    'Account No: 1234-5678-9012-3456',
+                    style: TextStyle(
+                        fontSize: 16.0,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+                IconButton(
+                  icon: const Icon(Icons.copy, color: Colors.blue),
+                  onPressed: () => _copyToClipboard('1234-5678-9012-3456'),
                 ),
               ],
             ),
@@ -280,7 +297,7 @@ class _BPIInformationPageState extends State<BPIInformationPage> {
             const SizedBox(height: 8.0),
             const SizedBox(height: 16.0),
             const Text(
-              'Reference Number',
+              'Reference Number (Optional)',
               style: TextStyle(fontSize: 18, color: Colors.black),
             ),
             const SizedBox(height: 8.0),

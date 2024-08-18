@@ -6,7 +6,7 @@ import 'pages/dashboard_page.dart';
 import 'pages/history_page.dart';
 import 'pages/profile_page.dart';
 import 'pages/about_page.dart';
-
+import 'pages/update_password_page.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 Future<void> main() async {
@@ -35,6 +35,7 @@ class MyApp extends StatelessWidget {
         '/profile': (context) => const ProfilePage(),
         '/dashboard': (context) => const DashboardPage(),
         '/about': (context) => const AboutPage(),
+        '/update-password': (context) => const UpdatePasswordPage(),
       },
     );
   }
