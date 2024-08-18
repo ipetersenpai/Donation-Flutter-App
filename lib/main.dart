@@ -3,11 +3,15 @@ import 'pages/login_page.dart';
 import 'pages/forgot_password_page.dart';
 import 'pages/register_page.dart';
 import 'pages/dashboard_page.dart';
-import 'pages/history_page.dart'; // Import the HistoryPage
-import 'pages/profile_page.dart'; // Import the ProfilePage
+import 'pages/history_page.dart';
+import 'pages/profile_page.dart';
 import 'pages/about_page.dart';
 
-void main() {
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: ".env");
   runApp(const MyApp());
 }
 
@@ -30,7 +34,7 @@ class MyApp extends StatelessWidget {
         '/history': (context) => const HistoryPage(),
         '/profile': (context) => const ProfilePage(),
         '/dashboard': (context) => const DashboardPage(),
-        '/about': (context) => AboutPage(),
+        '/about': (context) => const AboutPage(),
       },
     );
   }
