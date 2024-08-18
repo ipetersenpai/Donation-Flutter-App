@@ -14,13 +14,12 @@ class _AboutPageState extends State<AboutPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'About',
+          'ABOUT',
           style: TextStyle(
             fontSize: 16.0,
             color: Colors.black, // Set text color to contrast with background
           ),
         ),
-        backgroundColor: Colors.white, // Set the background color of the AppBar
         elevation: 0, // Remove shadow if needed
         centerTitle: true,
       ),
