@@ -78,7 +78,7 @@ class _HistoryPageState extends State<HistoryPage> {
                       itemBuilder: (context, index) {
                         final donation = _donations[index];
                         return Card(
-                          color: const Color(0xFF9D0606),
+                          color: Colors.white,
                           elevation: 4,
                           margin: const EdgeInsets.symmetric(vertical: 8),
                           child: ListTile(
@@ -86,7 +86,7 @@ class _HistoryPageState extends State<HistoryPage> {
                               donation['category_name'] ?? 'Unknown',
                               style: const TextStyle(
                                 fontWeight: FontWeight.bold,
-                                color: Colors.white,
+                                color: Color(0xFF9D0606),
                               ),
                             ),
                             subtitle: Column(
@@ -96,28 +96,28 @@ class _HistoryPageState extends State<HistoryPage> {
                                   'Payment Option: ${donation['payment_option'] ?? 'Unknown'}',
                                   style: const TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.white,
+                                    color: Colors.black,
                                   ),
                                 ),
                                 Text(
                                   'Amount: \$${donation['amount'] ?? '0.00'}',
                                   style: const TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.white,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                                Text(
+                                  'Reference no: ${donation['reference_no'] ?? 'Unknown'}',
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black,
                                   ),
                                 ),
                                 Text(
                                   'Date Donated: ${donation['created_at'] != null ? DateTime.parse(donation['created_at']).toLocal().toString() : 'Unknown'}',
                                   style: const TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                Text(
-                                  'Status: ${donation['approve_status'] ?? 'Unknown'}',
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white,
+                                    color: Colors.black,
                                   ),
                                 ),
                               ],
