@@ -7,6 +7,7 @@ import '../widgets/bottom_navigation_bar_widget.dart';
 import '../pages/profile_page.dart';
 import '../pages/history_page.dart';
 import '../pages/donate_page.dart';
+import '../pages/about_donation.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
@@ -14,7 +15,6 @@ class DashboardPage extends StatefulWidget {
   const DashboardPage({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _DashboardPageState createState() => _DashboardPageState();
 }
 
@@ -56,6 +56,8 @@ class _DashboardPageState extends State<DashboardPage> {
               'id': item['id'],
               'title': item['category_name'],
               'subtitle': item['description'],
+              'about': item['about'] ?? '', // Handle nullable 'about'
+              'link': item['link'] ?? '', // Handle nullable 'link'
             };
           }).toList();
           _isLoading = false;
@@ -111,6 +113,23 @@ class _DashboardPageState extends State<DashboardPage> {
           donationId: id,
           donationCategory: title,
           donationDescription: subtitle,
+        ),
+      ),
+    );
+  }
+
+  void _navigateToAboutPage(
+      BuildContext context, String title, String about, String link) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => AboutDonationPage(
+          about: about.isEmpty
+              ? 'No information available'
+              : about, // Default text if null
+          link: link.isEmpty
+              ? 'https://example.com'
+              : link, // Default link if null
         ),
       ),
     );
@@ -215,24 +234,43 @@ class _DashboardPageState extends State<DashboardPage> {
                                 ),
                               ),
                               const SizedBox(height: 16),
-                              Align(
-                                alignment: Alignment.bottomRight,
-                                child: ElevatedButton(
-                                  onPressed: () => _navigateToDonatePage(
-                                    context,
-                                    category['id'].toString(),
-                                    category['title'],
-                                    category['subtitle'],
-                                  ),
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.white,
-                                    foregroundColor: const Color(0xFF9D0606),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(20),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  ElevatedButton(
+                                    onPressed: () => _navigateToAboutPage(
+                                      context,
+                                      category['title'],
+                                      category['about'],
+                                      category['link'],
                                     ),
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: Colors.white,
+                                      foregroundColor: const Color(0xFF9D0606),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(20),
+                                      ),
+                                    ),
+                                    child: const Text("ABOUT"),
                                   ),
-                                  child: const Text("DONATE NOW"),
-                                ),
+                                  const SizedBox(width: 7),
+                                  ElevatedButton(
+                                    onPressed: () => _navigateToDonatePage(
+                                      context,
+                                      category['id'].toString(),
+                                      category['title'],
+                                      category['subtitle'],
+                                    ),
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: Colors.white,
+                                      foregroundColor: const Color(0xFF9D0606),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(20),
+                                      ),
+                                    ),
+                                    child: const Text("DONATE NOW"),
+                                  ),
+                                ],
                               ),
                             ],
                           ),

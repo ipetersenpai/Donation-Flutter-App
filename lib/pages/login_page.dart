@@ -133,7 +133,7 @@ class _LoginPageState extends State<LoginPage> {
                 alignment: Alignment.centerRight,
                 child: GestureDetector(
                   onTap: () {
-                    _launchURL('https://donation.com/forgot');
+                    _launchURL('http://10.0.2.2:8000/auth/password/reset');
                   },
                   child: const Text(
                     'Forgot Password?',
@@ -167,7 +167,7 @@ class _LoginPageState extends State<LoginPage> {
               Center(
                 child: GestureDetector(
                   onTap: () {
-                    _launchURL('https://donation.com/register');
+                    _launchURL('http://10.0.2.2:8000/auth/register');
                   },
                   child: const Row(
                     mainAxisSize: MainAxisSize.min,

@@ -17,10 +17,10 @@ class _AboutPageState extends State<AboutPage> {
           'ABOUT',
           style: TextStyle(
             fontSize: 16.0,
-            color: Colors.black, // Set text color to contrast with background
+            color: Colors.black,
           ),
         ),
-        elevation: 0, // Remove shadow if needed
+        elevation: 0,
         centerTitle: true,
       ),
       body: const Padding(
@@ -30,7 +30,7 @@ class _AboutPageState extends State<AboutPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'About Us',
+                'Caritas Tarlac',
                 style: TextStyle(
                   fontSize: 24.0,
                   fontWeight: FontWeight.bold,
@@ -38,51 +38,61 @@ class _AboutPageState extends State<AboutPage> {
               ),
               SizedBox(height: 20.0),
               Text(
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum. Phasellus consectetur, felis a facilisis vulputate, libero odio condimentum elit, eget laoreet mi eros nec turpis. Cras suscipit, lorem et tempus posuere, justo eros convallis eros, id pharetra sapien purus nec nisl. Fusce ultricies purus et dolor interdum, a pellentesque mauris fermentum.',
+                '          Caritas Tarlac has been active since 2018, and it is a social action form of the Diocese of Tarlac. It was originally called Caritas San Sebastian because it is based in San Sebastian Tarlac, but it was later renamed Caritas Tarlac because the director and bishop saw that it was good to make its own identity in every diocese, so they called it Caritas Tarlac.',
                 style: TextStyle(
                   fontSize: 16.0,
+                  height: 1.5, // Adjust the height for better readability
+                  wordSpacing: 2.0, // Add word spacing
                 ),
               ),
               SizedBox(height: 20.0),
               Text(
-                'Curabitur vitae ante at velit scelerisque dignissim. Aliquam erat volutpat. Nulla facilisi. Donec in tortor ut elit consequat laoreet. Nam id lorem a magna auctor varius. Sed id vestibulum nisi, a aliquet sapien. Mauris vehicula, ligula eget egestas tempor, purus lorem bibendum dui, non gravida tortor dui ut elit.',
+                'The Church has three activities: formation, prayer, and service, and Caritas Tarlac falls within the category of service, which is why it is the Diocese\'s social action form. Caritas in the Philippines is not limited to just one; there is Caritas Manila, Caritas Pampanga, and others. The different Caritas support each other whenever they need help. The primary source of finances for these social action forms is the generosity of individuals, various parishes, and a coin bank located in various locations. Caritas Manila, Caritas Tarlac, etc. is the bridge between generous people and those in need.',
                 style: TextStyle(
                   fontSize: 16.0,
+                  height: 1.5,
+                  wordSpacing: 2.0,
                 ),
               ),
               SizedBox(height: 20.0),
               Text(
-                'Praesent ac sapien vel dolor lacinia accumsan non ac purus. Integer in nisi non nulla suscipit facilisis. Duis eu neque nec felis varius tristique. Ut euismod sapien nec ante bibendum gravida. Donec in felis eu elit venenatis sollicitudin. Integer vulputate gravida massa, eu vehicula purus cursus at.',
+                'The Caritas Tarlac has seven legacy programs:',
                 style: TextStyle(
                   fontSize: 16.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: 10.0),
+              Text(
+                '1. Alay Kapwa para sa Karunungan (Wisdom)\n'
+                '2. Alay Kapwa para sa Kalusugan (Health)\n'
+                '3. Alay Kapwa para sa Kalamidad (Calamity)\n'
+                '4. Alay kapwa para sa Kasanayan (Skills)\n'
+                '5. Alay kapwa para sa Kabuhayan (Livelihood)\n'
+                '6. Alay kapwa para sa Kalikasan (Nature)\n'
+                '7. Alay kapwa para sa Katarungan (Justice)',
+                style: TextStyle(
+                  fontSize: 16.0,
+                  height: 1.5,
+                  wordSpacing: 2.0,
                 ),
               ),
               SizedBox(height: 20.0),
               Text(
-                'Sed dignissim, sapien at viverra cursus, nunc magna pharetra elit, sed accumsan magna quam nec felis. Suspendisse potenti. In varius, lacus id imperdiet pretium, ligula risus elementum sapien, sed pharetra lectus ante a urna. Curabitur ac libero est. Aenean euismod feugiat sem, vitae blandit lacus tincidunt nec.',
+                '          According to the Coordinator, Caritas does not have large money; instead, they rely on kind people and other Caritas to aid; they serve as a bridge, finding beneficiaries for the generous people.',
                 style: TextStyle(
                   fontSize: 16.0,
+                  height: 1.5,
+                  wordSpacing: 2.0,
                 ),
               ),
               SizedBox(height: 20.0),
               Text(
-                'Nunc at nisi non lacus varius convallis. Phasellus volutpat sollicitudin magna, id dignissim orci posuere ut. Proin euismod ligula ac fermentum sodales. Duis quis augue sit amet mauris tincidunt accumsan. Maecenas ac enim in ligula venenatis luctus nec a arcu. Integer vitae nisi vel libero viverra bibendum.',
+                'Other Caritas Pampanga has a staff of fifty, Caritas Manila has a staff of 300, and Caritas Tarlac has only 6 staff, including the Director, Rev. Fr. Randy Salunga. The Coordinator is Bro. Crisberto Salvador. Other Caritas have different coordinators for different legacies, but Caritas Tarlac only has one Coordinator for Seven Legacy. Thus, based on their stories and experience, they definitely need a system, and it will be useful to them in terms of report creation and receipt. This system will help its staffing shortage and make it easier for them to handle the 7 Legacy, as well as generate awareness that there is an existing social action form in which you may be one of its contributors or one of the generous individuals.',
                 style: TextStyle(
                   fontSize: 16.0,
-                ),
-              ),
-              SizedBox(height: 20.0),
-              Text(
-                'Aliquam erat volutpat. Cras pharetra arcu vitae velit pharetra, ac pharetra magna convallis. Nulla facilisi. Sed nec bibendum lorem. Fusce ac arcu vel urna vestibulum consectetur ut non lacus. Nam laoreet, mauris id dignissim facilisis, tortor felis sagittis eros, eget dignissim magna dolor et lorem.',
-                style: TextStyle(
-                  fontSize: 16.0,
-                ),
-              ),
-              SizedBox(height: 20.0),
-              Text(
-                'Phasellus nec tincidunt odio. Curabitur in velit sed orci efficitur gravida sit amet sed justo. Integer sed dui et lorem aliquet facilisis vel a lorem. Aliquam erat volutpat. Morbi eu elit ut mauris dictum fringilla non non purus. Donec quis sagittis sapien.',
-                style: TextStyle(
-                  fontSize: 16.0,
+                  height: 1.5,
+                  wordSpacing: 2.0,
                 ),
               ),
             ],
