@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'pages/login_page.dart';
-import 'pages/forgot_password_page.dart';
-import 'pages/register_page.dart';
 import 'pages/dashboard_page.dart';
 import 'pages/history_page.dart';
 import 'pages/profile_page.dart';
@@ -29,8 +27,6 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const LoginPage(),
-        '/forgot_password': (context) => ForgotPasswordPage(),
-        '/register': (context) => RegisterPage(),
         '/history': (context) => const HistoryPage(),
         '/profile': (context) => const ProfilePage(),
         '/dashboard': (context) => const DashboardPage(),

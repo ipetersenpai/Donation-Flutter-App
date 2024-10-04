@@ -4,7 +4,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-
 import 'package:url_launcher/url_launcher.dart';
 
 class LoginPage extends StatefulWidget {
@@ -20,8 +19,13 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _passwordController = TextEditingController();
   final storage = const FlutterSecureStorage();
 
-  Future<void> _launchURL(String url) async {
+  // Function to launch URLs using BASE_URL_WEB
+  Future<void> _launchURL(String endpoint) async {
+    // Create the full URL using BASE_URL_WEB
+    final String url = '${dotenv.env['BASE_URL_WEB']}$endpoint';
     final Uri uri = Uri.parse(url);
+
+    // Launch the URL in an external application
     if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
       throw 'Could not launch $url';
     }
@@ -133,7 +137,8 @@ class _LoginPageState extends State<LoginPage> {
                 alignment: Alignment.centerRight,
                 child: GestureDetector(
                   onTap: () {
-                    _launchURL('http://10.0.2.2:8000/auth/password/reset');
+                    // Use the new _launchURL function with the password reset endpoint
+                    _launchURL('/auth/password/reset');
                   },
                   child: const Text(
                     'Forgot Password?',
@@ -163,11 +168,11 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               const SizedBox(height: 45),
-              const Center(),
               Center(
                 child: GestureDetector(
                   onTap: () {
-                    _launchURL('http://10.0.2.2:8000/auth/register');
+                    // Use the new _launchURL function with the registration endpoint
+                    _launchURL('/auth/register');
                   },
                   child: const Row(
                     mainAxisSize: MainAxisSize.min,
