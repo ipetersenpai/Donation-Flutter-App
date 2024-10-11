@@ -73,6 +73,14 @@ flutter:
     - assets/card.svg
     - assets/bpi.svg
     - assets/payment_qr/paymentqr.svg
+    - assets/about/1.svg
+    - assets/about/2.svg
+    - assets/about/3.svg
+    - assets/about/4.svg
+    - assets/about/5.svg
+    - assets/about/6.svg
+    - assets/about/7.svg
+    - assets/about/8.svg
     - .env
 
   # The following line ensures that the Material Icons font is
