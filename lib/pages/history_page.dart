@@ -100,7 +100,7 @@ class _HistoryPageState extends State<HistoryPage> {
                                   ),
                                 ),
                                 Text(
-                                  'Amount: \$${donation['amount'] ?? '0.00'}',
+                                  'Amount: ₱${donation['amount'] ?? '0.00'}',
                                   style: const TextStyle(
                                     fontWeight: FontWeight.bold,
                                     color: Colors.black,

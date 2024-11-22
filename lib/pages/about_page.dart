@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import '../widgets/about_botton_nav.dart';
 
 class AboutPage extends StatefulWidget {
   const AboutPage({super.key});
@@ -10,6 +11,28 @@ class AboutPage extends StatefulWidget {
 }
 
 class _AboutPageState extends State<AboutPage> {
+  int _currentIndex = 0;
+
+  // List of pages for navigation
+  final List<Widget> _pages = [
+    // Add your other pages here
+    Center(child: Text('Home Page')), // Replace with actual pages
+    Center(child: Text('History Page')), // Replace with actual pages
+    AboutPage(), // Current page
+  ];
+
+  void _onTabTapped(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+    if (index != 2) {
+      // Prevent reloading the AboutPage if already on it
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => _pages[index]),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -169,6 +192,17 @@ class _AboutPageState extends State<AboutPage> {
             ],
           ),
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBarWidget(
+        currentIndex: _currentIndex,
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+
+          // Navigate only to the /dashboard page
+          Navigator.pushReplacementNamed(context, '/dashboard');
+        },
       ),
     );
   }
