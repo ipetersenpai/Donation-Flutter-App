@@ -2,51 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../widgets/about_botton_nav.dart';
 
-class AboutPage extends StatefulWidget {
+class AboutPage extends StatelessWidget {
   const AboutPage({super.key});
-
-  @override
-  // ignore: library_private_types_in_public_api
-  _AboutPageState createState() => _AboutPageState();
-}
-
-class _AboutPageState extends State<AboutPage> {
-  int _currentIndex = 0;
-
-  // List of pages for navigation
-  final List<Widget> _pages = [
-    // Add your other pages here
-    Center(child: Text('Home Page')), // Replace with actual pages
-    Center(child: Text('History Page')), // Replace with actual pages
-    AboutPage(), // Current page
-  ];
-
-  void _onTabTapped(int index) {
-    setState(() {
-      _currentIndex = index;
-    });
-    if (index != 2) {
-      // Prevent reloading the AboutPage if already on it
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => _pages[index]),
-      );
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'ABOUT',
-          style: TextStyle(
-            fontSize: 16.0,
-            color: Colors.black,
-          ),
-        ),
-        elevation: 0,
-        centerTitle: true,
-      ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: SingleChildScrollView(
@@ -101,7 +62,7 @@ class _AboutPageState extends State<AboutPage> {
               ),
               const SizedBox(height: 20.0),
               const Text(
-                'This legacy focuses on enhancing health and well-being by supporting persons with disabilities. Caritas Tarlac distributes necessary medicines sourced from the Department of Health and operates Saklay Cafe, which employs individuals with disabilities. Additionally, they conduct dental missions and bloodletting activities to promote community health',
+                'This legacy focuses on enhancing health and well-being by supporting persons with disabilities. Caritas Tarlac distributes necessary medicines sourced from the Department of Health and operates Saklay Cafe, which employs individuals with disabilities. Additionally, they conduct dental missions and bloodletting activities to promote community health.',
                 style: TextStyle(
                   fontSize: 16.0,
                   height: 1.5,
@@ -192,17 +153,6 @@ class _AboutPageState extends State<AboutPage> {
             ],
           ),
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBarWidget(
-        currentIndex: _currentIndex,
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-
-          // Navigate only to the /dashboard page
-          Navigator.pushReplacementNamed(context, '/dashboard');
-        },
       ),
     );
   }

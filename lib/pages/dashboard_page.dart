@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import '../widgets/drawer_widget.dart';
 import '../widgets/bottom_navigation_bar_widget.dart';
+import '../pages/about_page.dart';
 import '../pages/profile_page.dart';
 import '../pages/history_page.dart';
 import '../pages/donate_page.dart';
@@ -145,7 +146,9 @@ class _DashboardPageState extends State<DashboardPage> {
               ? 'DONATION CATEGORY'
               : _currentIndex == 1
                   ? 'HISTORY'
-                  : 'PROFILE',
+                  : _currentIndex == 2
+                      ? 'PROFILE'
+                      : 'ABOUT',
           style: const TextStyle(
             fontSize: 16.0,
           ),
@@ -281,6 +284,7 @@ class _DashboardPageState extends State<DashboardPage> {
                 ),
           const HistoryPage(), // History content
           const ProfilePage(), // Profile content
+          const AboutPage(), // Profile content
         ],
       ),
       bottomNavigationBar: BottomNavigationBarWidget(

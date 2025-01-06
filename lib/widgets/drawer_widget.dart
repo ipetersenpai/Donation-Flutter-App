@@ -106,18 +106,6 @@ class _AppDrawerState extends State<AppDrawer> {
             ),
             ListTile(
               leading: SvgPicture.asset(
-                'assets/history.svg',
-                width: 24,
-                height: 24,
-                color: Colors.black,
-              ),
-              title: const Text('About'),
-              onTap: () {
-                Navigator.pushNamed(context, '/about');
-              },
-            ),
-            ListTile(
-              leading: SvgPicture.asset(
                 'assets/lock.svg',
                 width: 24,
                 height: 24,

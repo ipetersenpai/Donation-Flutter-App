@@ -8,6 +8,7 @@ class HistoryPage extends StatefulWidget {
   const HistoryPage({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _HistoryPageState createState() => _HistoryPageState();
 }
 
