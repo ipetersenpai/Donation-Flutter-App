@@ -54,7 +54,7 @@ class _LoginPageState extends State<LoginPage> {
 
         // Navigate to dashboard
         // ignore: use_build_context_synchronously
-        Navigator.pushReplacementNamed(context, '/about');
+        Navigator.pushReplacementNamed(context, '/dashboard');
       } else {
         _showError('Invalid login credentials');
       }

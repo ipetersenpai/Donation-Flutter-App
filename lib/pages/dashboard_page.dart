@@ -21,8 +21,9 @@ class DashboardPage extends StatefulWidget {
 
 class _DashboardPageState extends State<DashboardPage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-  int _currentIndex = 0;
-  final PageController _pageController = PageController();
+  int _currentIndex = 3; // Set initial index to 3 (AboutPage)
+  final PageController _pageController =
+      PageController(initialPage: 3); // Start from AboutPage
   bool _isLoading = true;
   List<Map<String, dynamic>> _donationCategories = [];
 
